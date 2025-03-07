@@ -2,19 +2,20 @@
 #include <stdlib.h>
 
 int main() {
-    int m, n
-    //Solicita al usuario los valores de m,n
-    printf("Solicite el numero de filas (m):");
+    int m, n;
+
+    //Ingresar los valores de m,n
+    printf("Ingrese el numero de filas (m): ");
     scanf ("%d", &m);
-    printf("Solicite el numero de filas (n)");
+    printf("Solicite el numero de filas (n): ");
     scanf ("%d", &n);
 
     // Usa calloc para reservar memoria para la matriz
     int *matriz = (int *)calloc(m * n, sizeof(int));
 
-    // Verificar si la memoria se asignó correctamente
+    // Verificar si la memoria asignó correctamente
     if (matriz == NULL) {
-        printf("Error: No se pudo asignar memoria.\n");
+        printf("Error: No se pudo asignar  a la memoria.\n");
         return 1;
     }
 
@@ -28,16 +29,16 @@ int main() {
     }
 
     // Permite al usuario modificar algunos valores
-    int fila, col, valor;
+    int x, y, valor;
     char continuar;
     do {
-        printf("\nIngrese la fila y columna a modificar (0-based index): ");
-        scanf("%d %d", &fila, &col);
+        printf("\nIngrese la fila y columna a modificar (ejemplo: 1 1 para la primera celda): ");
+        scanf("%d %d", &x, &y);
         
-        if (fila >= 0 && fila < m && col >= 0 && col < n) {
+        if (x >= 0 && x < m && y >= 0 && y < n) {
             printf("Ingrese el nuevo valor: ");
             scanf("%d", &valor);
-            matriz[fila * n + col] = valor; // Actualiza el valor en la matriz
+            matriz[x * n + y] = valor; // Actualiza el valor en la matriz
         } else {
             printf("Índice fuera de rango. Intente de nuevo.\n");
         }
